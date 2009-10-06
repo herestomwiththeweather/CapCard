@@ -27,7 +27,7 @@ config.action_view.cache_template_loading            = true
 # Enable threaded mode
 # config.threadsafe!
 
-HOST = "capcard.heroku.com"
+HOST = ENV["OPEN_TRANSACT_HOST"]
 
 config.action_mailer.delivery_method = :smtp
 require "smtp_tls"
