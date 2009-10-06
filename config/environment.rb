@@ -46,6 +46,6 @@ Rails::Initializer.run do |config|
 end
 
 # The account used 
-OPERATOR_ACCOUNT="capcard@stakeventures.com"
+OPERATOR_ACCOUNT=ENV["OPEN_TRANSACT_OPERATOR_ACCOUNT"]
 
 ActiveSupport::JSON.backend = 'JSONGem'
