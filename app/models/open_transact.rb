@@ -48,13 +48,17 @@ module OpenTransact
       save
       access_token
     end
+
+    def transacts_path
+      @transacts_path ||= (OPEN_TRANSACT_ASSET.empty? ? "/transacts" : "/transacts/#{OPEN_TRANSACT_ASSET}")
+    end
     
     def transactions
-      @transactions||=JSON.parse(client.get("/transacts.json").body)
+      @transactions||=JSON.parse(client.get(transacts_path + ".json").body)
     end
     
     def withdraw(amount)
-      JSON.parse(client.post("/transacts",{:amount=>amount,:memo=>"Withdrawal",:to=>OPERATOR_ACCOUNT},{'Accept'=>'application/json'}).body)
+      JSON.parse(client.post(transacts_path,{:amount=>amount,:memo=>"Withdrawal",:to=>OPERATOR_ACCOUNT},{'Accept'=>'application/json'}).body)
     end
     
   end
