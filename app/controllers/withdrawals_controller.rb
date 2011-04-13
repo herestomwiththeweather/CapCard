@@ -4,7 +4,7 @@ class WithdrawalsController < ApplicationController
   def create
     begin
       @transact=current_card.withdraw(params[:amount])
-      flash[:notice] = "You successfully withdrew #{@transact['amount']}" if @transact["status"]=="ok"
+      flash[:notice] = "You successfully withdrew #{@transact['amount']} #{current_card.asset}" if @transact["status"]=="ok"
     rescue
       flash[:error]="Something went wrong #{$!}"
     end

@@ -49,8 +49,16 @@ module OpenTransact
       access_token
     end
 
+    def asset=(a)
+      @asset = a
+    end
+
+    def asset
+      @asset || OPEN_TRANSACT_ASSET
+    end
+
     def transacts_path
-      @transacts_path ||= (OPEN_TRANSACT_ASSET.empty? ? "/transacts" : "/transacts/#{OPEN_TRANSACT_ASSET}")
+      @transacts_path ||= (asset.empty? ? "/transacts" : "/transacts/#{asset}")
     end
     
     def transactions
