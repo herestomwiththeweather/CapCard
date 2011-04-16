@@ -17,7 +17,8 @@ config.action_controller.perform_caching             = false
 config.action_mailer.raise_delivery_errors = false
 
 # If you fork this set it to your opentransact service providers details here:
-OPEN_TRANSACT_NAME="NuBux"
-OPEN_TRANSACT_URL="http://nubux.dev"
-OPEN_TRANSACT_CONSUMER_KEY="Bdstb50Plic5lPN0Ste88w"
-OPEN_TRANSACT_CONSUMER_SECRET="tY5mKvKs5xhNtcoLNdou6aOagK0p0Nqq29dwpTtwXc"
+HOST = ENV["OPEN_TRANSACT_HOST"]
+OPEN_TRANSACT_NAME=ENV["OPEN_TRANSACT_NAME"]
+OPEN_TRANSACT_URL=ENV["OPEN_TRANSACT_URL"]
+OPEN_TRANSACT_CONSUMER_KEY=ENV["OPEN_TRANSACT_CONSUMER_KEY"]
+OPEN_TRANSACT_CONSUMER_SECRET=ENV["OPEN_TRANSACT_CONSUMER_SECRET"]

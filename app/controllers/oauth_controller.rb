@@ -5,7 +5,8 @@ class OauthController < ApplicationController
   # If user is already connected it displays a page with an option to disconnect and redo
   def show
     unless current_card.token
-      @request_token=Card.get_request_token(oauth_callback_url(:only_path=>false))
+      scope = ENV["OPEN_TRANSACT_ASSET"]
+      @request_token=Card.get_request_token(oauth_callback_url(:only_path=>false),scope)
       session[@request_token.token]=@request_token.secret
       if @request_token.callback_confirmed?
         redirect_to @request_token.authorize_url

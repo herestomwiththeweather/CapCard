@@ -18,8 +18,8 @@ module OpenTransact
       @consumer||=OAuth::Consumer.new OPEN_TRANSACT_CONSUMER_KEY, OPEN_TRANSACT_CONSUMER_SECRET, :site=>OPEN_TRANSACT_URL
     end
 
-    def get_request_token(callback_url)
-      consumer.get_request_token(:oauth_callback=>callback_url)
+    def get_request_token(callback_url,scope)
+      consumer.get_request_token({:oauth_callback=>callback_url},:scope => scope)
     end
     
     protected
